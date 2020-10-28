@@ -1,41 +1,39 @@
 *{
+	margin:0;
+	padding: 0; 
 	box-sizing: border-box;
 }
 
 body{
-	background: #fff;
+	background: #f2f2f2;
 	font-family: "Open Sans", Sans-serif;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .contenedor{
-	width: 90%;
+	width: 85%;
 	max-width: 1000px;
 	margin:auto;
-	overflow: hidden;/*oculta el contenido sobrante*/
 }
 
  .trabajos{
-	background: #f2f2f2;
+	background: #fff;
 	text-align: center;
-	margin: auto;
 	margin-top: 100px;
-	width: 900px;
+	width: 600px;
+	margin: 40px auto;
 	padding: 60px 0;
+	border-radius: 6px 6px 0 0;
 }
 
 .trabajos .contenedor{
 	overflow: hidden;
 }
 
-div p{
-	margin-bottom: 50px;
-}
-
 .trabajos .titulo{
 	font-size: 34px;
 	line-height: 34px;
-	margin-bottom: 100px;
+	margin-bottom: 70px;
 	font-weight: 300;
 	color: #323068;
 	text-align: center;
@@ -46,16 +44,18 @@ div p{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	align-items: baseline;
+
 }
 
 .trabajos .formulario input[type="text"],
 .trabajos .formulario textarea{
-	border: 2px solid #cecece;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 25px 10px;
+	font-family: Arial, Sans-serif;
+	font-size: 18px;
 	border-radius: 5px;
-	padding: 15px 20px;
-	font-size: 20px;
-	margin-left:10px;
-	color: #a4a4a4;
 }
 
 .trabajos .formulario input[type="text"]:focus,
@@ -64,64 +64,67 @@ div p{
 }
 
 .trabajos .formulario input[type="text"]{
-	width: 49%;
+	width: 80%;
 	margin-bottom: 15px;
 }
 
 .trabajos .formulario textarea{
-	width: 100%;
-	height: 150px;
-	min-width: 100%;
-	max-width: 100%;
+	width: 50%;
+	height: 130px;
+	min-width: 80%;
+	max-width: 50%;
 	min-height: 100px;
 	max-height: 300px;
 	margin-bottom: 15px;
 }
 
-.trabajos .formulario .boton{
+.trabajos .formulario .sel{
 	margin: auto;
-	background: #3895ea;
-	color: #fff;
-	border:none;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.trabajos .formulario .modulo{
 	border-radius: 3px;
-	padding:15px 40px; 
+	padding: 5px 10px;
+	font-size: 16px;
+}
+.trabajos .formulario .prioridad{
+	border-radius: 3px;
+	padding: 5px 10px;
+	font-size: 16px;
+}
+
+.trabajos .formulario .error{
+	display: none;
+	margin-top: 20px;
+	border-radius: 3px;
+	background: #ce1818;
+	color: #fff;
+	padding: 15px 10px;
+	padding-left: 40px;
+}
+
+.trabajos .formulario .boton{
+	width: 100%;
+	text-align: center;
+	background: #340923;
+	color: #fff;
+	border: none;
+	display: block;
+	padding: 25px 10px;
 	cursor: pointer;
-	font-size: 25px;
+	border-radius: 6px 6px 0 0;
+	font-family: Arial,Sans-serif;
+	font-size: 18px;
+	margin-top: 50px;
 }
 
 .trabajos .formulario .boton:hover{
-	background: #387bea;
+	background: #570F3A;
 }
 
-
-
-
-
-footer .redes-sociales{
-	background: #1e2b38;
-	padding:60px 0;
-}
-
-footer .redes-sociales .contenedor{
-	display: flex;
-	justify-content: center;
-}
-
-footer .redes-sociales a{
-	color: #fff;
-	text-align: center;
-	width: 100px;
-	display: block;
-	padding: 15px 0;
-	border-radius: 3px;
-	font-size: 40px;
-}
-
-footer .redes-sociales .twitter:hover{background: #1da1f2;}
-footer .redes-sociales .facebook:hover{background: #3b5998;}
-footer .redes-sociales .youtube:hover{background: #cd201f;}
-footer .redes-sociales .github:hover{background: #666666;}
-footer .redes-sociales .instagram:hover{background: #3f729b;}
 
 
 @media screen and (max-width: 1500px){

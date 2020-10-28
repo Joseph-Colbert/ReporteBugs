@@ -14,36 +14,74 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     </head>
 	<body>
-		<section class="trabajos">			
+		<section class="trabajos">	
+			<form class="formulario" action="" id="formulario" name="formulario">		
 				<div class="contenedor">
-						<h3 class="titulo">Reporte De Bugs</h3>
-						<form class="formulario" action="">
-							<div>
-							<h4>Quien reporta?</h4>
-						    </div>
-							<input type="text" placeholder="Nombre" name="nombre" required>
-							<div>
-							<h4>Descripcion del producto</h4>
-						    </div>
-							<textarea name="mensaje" placeholder="Mensaje"></textarea>
-							<input class="boton" type="submit" value="Enviar">
-						</form>
-					</div>
+					<h3 class="titulo">Reporte De Bugs</h3>
+					<input type="text" placeholder="Quien Reporta?" name="nombre" required>
+					<textarea name="mensaje" placeholder="Descripcion del problema"></textarea>
+				
+				<div class="sel">
+					<p>
+						Modulo:
+					<select class="modulo" name="modulo">
+    				 	<option>Administrador Web</option>
+     					<option>BackEnd</option>
+     					<option>Aplicacion Mobil</option>
+   					</select>
+   					</p>
+   					<p>
+   						<br>
+   						Prioridad: 
+   					<select class="prioridad" name="prioridad">
+    				 	<option>Baja</option>
+     					<option>Media</option>
+     					<option>Alta</option>
+   					</select>
+   					</p>
+   				</div>
+   					<ul class="error" id="error"></ul>
+   				</div>
+   				<input class="boton" type="submit" value="Enviar">
+			</form>
 		</section>
 
-			<footer>
-			
-			
+		<script>
+				var formulario = document.getElementById('formulario'),
+				nombre = formulario.nombre,
+				mensaje = formulario.mensaje,
+				error = document.getElementById('error');
 
-				<section class="redes-sociales">
-					<div class="contenedor">
-						<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-						<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-						<a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-						<a href="#" class="github"><i class="fa fa-github"></i></a>
-						<a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-					</div>
-				</section>
-			</footer>
+				function validarNombre(e){
+					if(nombre.value == '' || nombre.value == null){
+						console.log('Porfavor completa el nombre');
+						error.style.display = 'block';
+						error.innerHTML = error.innerHTML + '<li> Porfavor completa el nombre</li>'// para que muestre todos los errores
+						e.preventDefault();
+					}else{
+						error.style.display = 'none';
+					}
+				}
+
+				function validarMensaje(e){
+					if(mensaje.value == '' || mensaje.value == null){
+						console.log('Porfavor deja un mensaje');
+						error.style.display = 'block';
+						error.innerHTML = error.innerHTML + '<li> Porfavor deja un mensaje</li>'// para que muestre todos los errores
+						e.preventDefault();
+					}else{
+						error.style.display = 'none';// para que ya no aparezcan mensajes de error
+					}
+				}
+
+				function validarFormulario(e){
+					error.innerHTML = '';//para que se reinicien los errores encontrados
+					validarNombre(e);
+					validarMensaje(e);
+			
+				}
+
+				formulario.addEventListener('submit',validarFormulario);
+		</script>
 	</body>
 </html>
