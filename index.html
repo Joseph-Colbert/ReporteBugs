@@ -6,22 +6,28 @@
 		<meta name="description" content="sdwafesrthgfewQQwdefr,wfaesgrwdeff">
 		<meta name="viewport" content="width=device-width, user-scalable=no,
 		initial-scale=1.0, maximun-scale=1.0,minimun-scale=1.0">
-		<title>Portafolio</title> 
-		<link rel="stylesheet" type="text/css" href="css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<title>Reporte de Bugs</title> 
 		<link rel="stylesheet" type="text/css" href="estilos.css">
 		<!--normalize nos permite adecuar la pagina para todos los navegadores-->
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     </head>
 	<body>
 		<section class="trabajos">	
-			<form class="formulario" action="" id="formulario" name="formulario">		
+			<form class="formulario" action="" id="formulario" name="formulario" method="post">		
 				<div class="contenedor">
 					<h3 class="titulo">Reporte De Bugs</h3>
 					<input type="text" placeholder="Quien Reporta?" name="nombre" required>
 					<textarea name="mensaje" placeholder="Descripcion del problema"></textarea>
 				
 				<div class="sel">
+					Prioridad: 
+   					<select class="prioridad" name="prioridad">
+    				 	<option>Baja</option>
+     					<option>Media</option>
+     					<option>Alta</option>
+   					</select>
+   					</p>
+
 					<p>
 						Modulo:
 					<select class="modulo" name="modulo">
@@ -32,21 +38,60 @@
    					</p>
    					<p>
    						<br>
-   						Prioridad: 
-   					<select class="prioridad" name="prioridad">
-    				 	<option>Baja</option>
-     					<option>Media</option>
-     					<option>Alta</option>
-   					</select>
-   					</p>
+   			
    				</div>
+
+					<input type="file" name="file" id="file" class="file">
+	   				<input type="button" value="Subir Imagen" class="btn"
+	   				onclick="document.getElementById('file').click()">
+
+   				<div class="ima" id="iP">
+   					<img alt="Preview" class="i">
+   					<span class="imagen">Image Preview</span>
+   				</div>
+
    					<ul class="error" id="error"></ul>
    				</div>
-   				<input class="boton" type="submit" value="Enviar">
+
+   				<input class="boton" type="submit" value="Enviar" id="btn">
 			</form>
 		</section>
 
 		<script>
+
+
+				//para que la imagen aparezca
+
+			const file = document.getElementById("file");
+			const pC = document.getElementById("iP");
+			const pI = pC.querySelector(".i");
+			const pDT = pC.querySelector(".imagen");
+
+			file.addEventListener("change", function(){
+				const filee = this.files[0];
+
+				if(filee){
+					const reader = new FileReader();
+
+					pDT.style.display = "none";
+					pI.style.display = 'block';
+
+					reader.addEventListener("load", function(){
+						console.log(this);
+						pI.setAttribute("src", this.result);
+					});
+
+					reader.readAsDataURL(filee);
+				}else{
+					pDT.style.display = null;
+					pI.style.display = null;
+					pI.setAttribute("src","");
+				}
+			});
+
+
+			//para el error
+				
 				var formulario = document.getElementById('formulario'),
 				nombre = formulario.nombre,
 				mensaje = formulario.mensaje,

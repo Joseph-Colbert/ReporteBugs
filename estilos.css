@@ -79,21 +79,77 @@ body{
 }
 
 .trabajos .formulario .sel{
-	margin: auto;
-	display: flex;
+	margin-right: 50px;
 	align-items: flex-end;
 	justify-content: space-between;
 }
 
 .trabajos .formulario .modulo{
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 5px 10px;
 	font-size: 16px;
+	margin-bottom: 15px;
 }
 .trabajos .formulario .prioridad{
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 5px 10px;
 	font-size: 16px;
+	margin-bottom: 30px;
+}
+.trabajos .file{
+	padding: 5px;
+	width: 180px;
+	position:relative;
+	background: #f2f2f2;
+	cursor:pointer; 
+	border-radius: 6px 6px 0 0;
+
+}
+
+.trabajos .file {
+	display: none;
+}
+
+.trabajos .btn{
+	display: block;
+	padding: 10px 21px;
+	border:none;
+	color: #fff;
+	font-size: 18px;
+	background: #BC104C;
+	border-radius: 3px;
+	cursor: pointer;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 40px;
+
+}
+
+.trabajos .imagenP{
+	margin: auto;
+}
+
+.trabajos .btn:hover{
+	background: #ED3173;
+}
+
+.trabajos .imagen{
+	width: 300px;
+	min-height: 100px;
+	height: 300px;
+	border: 2px solid #dddddd;
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #cccccc;
+	margin: auto;
+}
+
+.trabajos .i{
+	display: none;
+	width: 100%;
 }
 
 .trabajos .formulario .error{
@@ -125,32 +181,9 @@ body{
 	background: #570F3A;
 }
 
-
-
-@media screen and (max-width: 1500px){
-	header .menu{
+@media screen and (max-width: 600px){
+	.trabajos{
 		text-align: center;
+		width: 400px;
 	}
-
-	.trabajos .contenedor-trabajos .trabajo{
-		width: 46%;
-	}
-}
-
-@media screen and (max-width: 800px){
-	header .contenedor-texto .texto .nombre{
-		font-size: 35px;
-	}
-
-	header .contenedor-texto .texto .profesion{
-		font-size: 18px;
-	}
-
-	footer .redes-sociales a{
-		flex-wrap: wrap;
-		padding: 20px 0;	
-			 
-	}
-
-
 }
