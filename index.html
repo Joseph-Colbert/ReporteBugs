@@ -2,47 +2,66 @@
 <html lang="es">
 	<head>
 		<meta charset ="UTF-8">
-		<meta name="keywords" content="diseño web, codigo, css, javascript, tutoriales,html"><!--para que en el buscador aparezca-->
-		<meta name="description" content="sdwafesrthgfewQQwdefr,wfaesgrwdeff">
-		<meta name="viewport" content="width=device-width, user-scalable=no,
-		initial-scale=1.0, maximun-scale=1.0,minimun-scale=1.0">
 		<title>Reporte de Bugs</title> 
 		<link rel="stylesheet" type="text/css" href="estilos.css">
-		<!--normalize nos permite adecuar la pagina para todos los navegadores-->
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     </head>
-	<body>
+	<body class="hidden">
+		<div id="mensaje"></div>
+		<div class="centrado" id="load" style="display: none;">
+			<div class="lds-roller">
+				<div></div>
+				<div></div>
+				<div></div> 
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<div class="msg-container">
+			<div class="msg msg-close">
+				<p class="close">X</p>
+				<img src="reporteSubido.png" alt="">
+				<div class="msg-texto">
+					<h3>Reporte subido con exito</h3>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+				</div>
+			</div>
+		</div>
 		<section class="trabajos">	
 			<form class="formulario" action="" id="formulario" name="formulario" method="post">		
 				<div class="contenedor">
 					<h3 class="titulo">Reporte De Bugs</h3>
-					<input type="text" placeholder="Quien Reporta?" name="nombre" required>
-					<textarea name="mensaje" placeholder="Descripcion del problema"></textarea>
+					<input type="text" placeholder="Quien Reporta?" name="nombre" id="nombre">
+					<textarea name="mensaje" placeholder="Descripcion del problema" id="mensaje"></textarea>
 				
 				<div class="sel">
 					Prioridad: 
-   					<select class="prioridad" name="prioridad">
-    				 	<option>Baja</option>
-     					<option>Media</option>
-     					<option>Alta</option>
+   					<select class="prioridad" name="prioridad" id="prioridad">
+    				 	<option value="Baja">Baja</option>
+     					<option value="Media">Media</option>
+     					<option value="Alta">Alta</option>
    					</select>
    					</p>
 
 					<p>
 						Modulo:
-					<select class="modulo" name="modulo">
-    				 	<option>Administrador Web</option>
-     					<option>BackEnd</option>
-     					<option>Aplicacion Mobil</option>
+					<select class="modulo" name="modulo" id="modulo">
+    				 	<option value="Administrador Web">Administrador Web</option>
+     					<option value="BackEnd">BackEnd</option>
+     					<option value="Aplicacion Mobil">Aplicacion Mobil</option>
    					</select>
    					</p>
    					<p>
-   						<br>
+   				
    			
    				</div>
 
 					<input type="file" name="file" id="file" class="file">
-	   				<input type="button" value="Subir Imagen" class="btn"
+	   				<input type="button" value="Subir Imagen" class="btn" 
 	   				onclick="document.getElementById('file').click()">
 
    				<div class="ima" id="iP">
@@ -52,81 +71,12 @@
 
    					<ul class="error" id="error"></ul>
    				</div>
-
    				<input class="boton" type="submit" value="Enviar" id="btn">
 			</form>
 		</section>
 
-		<script>
-
-
-				//para que la imagen aparezca
-
-			const file = document.getElementById("file");
-			const pC = document.getElementById("iP");
-			const pI = pC.querySelector(".i");
-			const pDT = pC.querySelector(".imagen");
-
-			file.addEventListener("change", function(){
-				const filee = this.files[0];
-
-				if(filee){
-					const reader = new FileReader();
-
-					pDT.style.display = "none";
-					pI.style.display = 'block';
-
-					reader.addEventListener("load", function(){
-						console.log(this);
-						pI.setAttribute("src", this.result);
-					});
-
-					reader.readAsDataURL(filee);
-				}else{
-					pDT.style.display = null;
-					pI.style.display = null;
-					pI.setAttribute("src","");
-				}
-			});
-
-
-			//para el error
-				
-				var formulario = document.getElementById('formulario'),
-				nombre = formulario.nombre,
-				mensaje = formulario.mensaje,
-				error = document.getElementById('error');
-
-				function validarNombre(e){
-					if(nombre.value == '' || nombre.value == null){
-						console.log('Porfavor completa el nombre');
-						error.style.display = 'block';
-						error.innerHTML = error.innerHTML + '<li> Porfavor completa el nombre</li>'// para que muestre todos los errores
-						e.preventDefault();
-					}else{
-						error.style.display = 'none';
-					}
-				}
-
-				function validarMensaje(e){
-					if(mensaje.value == '' || mensaje.value == null){
-						console.log('Porfavor deja un mensaje');
-						error.style.display = 'block';
-						error.innerHTML = error.innerHTML + '<li> Porfavor deja un mensaje</li>'// para que muestre todos los errores
-						e.preventDefault();
-					}else{
-						error.style.display = 'none';// para que ya no aparezcan mensajes de error
-					}
-				}
-
-				function validarFormulario(e){
-					error.innerHTML = '';//para que se reinicien los errores encontrados
-					validarNombre(e);
-					validarMensaje(e);
-			
-				}
-
-				formulario.addEventListener('submit',validarFormulario);
-		</script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>

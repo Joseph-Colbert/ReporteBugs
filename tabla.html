@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset ="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no,
+		initial-scale=1.0, maximun-scale=1.0,minimun-scale=1.0">
+        <title>Tabla</title> 
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="tabla.css">
+    </head>
+	<body>
+        <div class="container">
+            <div class="h">
+                <div class="tools"> 
+                    <ul>
+                        <li><span><input type="checkbox"></span></li>
+                        <li>
+                            <button>
+                                <i class="material-icons">add_circle</i>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="material-icons">edit</i>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="material-icons">share</i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search">
+                    Search       
+                    <input type="text" class="search-input">
+                </div>
+            </div>
+
+		    <table class="datatable">
+                <thead>	
+                    <tr>
+                        <th></th>
+                        <th>Prioridad</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Modulo</th>
+                        <th>Imagen</th>
+                        <th>Fecha</th>
+                     </tr>
+                 </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="available"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="away"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="offline"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="available"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="away"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="offline"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="available"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="away"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+                    <tr>
+                        <td class="table-checkbox"><input type="checkbox"></td>
+                        <td><span class="offline"></span></td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>Mexico</td>
+                        <td>2020/03/01</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div class="f">
+                <div class="list-item">
+                    Show
+                    <select name="n-entries" id="n-entries" class="n-entris" >
+                        <option value="15">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                    </select>
+                    entries
+                </div>
+                <div class="pages">
+                    <ul>
+                        <li><span class="active">1</span></li>
+                        <li><button>2</button></li>
+                        <li><button>3</button></li>
+                        <li><button>4</button></li>
+                        <li><button>...</button></li>
+                        <li><button>9</button></li>
+                        <li><button>10</button></li>
+                    </ul>
+                </div>
+            </div>
+         </div>		
+         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <script src="tabla.js"></script>
+	</body>	
+</html>
