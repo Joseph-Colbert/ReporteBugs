@@ -21,40 +21,16 @@
                 loading.style.display = 'none';
               })
           });
-       
-       
-        
-        //para que la imagen aparezca
-
-        const file = document.getElementById("file");
-        const pC = document.getElementById("iP");
-        const pI = pC.querySelector(".i");
-        const pDT = pC.querySelector(".imagen");
-
-        file.addEventListener("change", function(){
-            const filee = this.files[0];
-
-            if(filee){
-                const reader = new FileReader();
-
-                pDT.style.display = "none";
-                pI.style.display = 'block';
-
-                reader.addEventListener("load", function(){
-                    console.log(this);
-                    pI.setAttribute("src", this.result);
-                });
-
-                reader.readAsDataURL(filee);
-            }else{
-                pDT.style.display = null;
-                pI.style.display = null;
-                pI.setAttribute("src","");
-            }
-        });
-
-
-
+/*
+          var formData = new FormData();
+          var imagefile = document.querySelector('#file');
+          formData.append("image", imagefile.files[0]);
+          axios.post('upload_file', formData, {
+                 headers: {
+                   'Content-Type': 'multipart/form-data'
+                 }
+          })*/
+          
         //para el error
             /*
 		var formulario = document.getElementById('formulario'),
@@ -125,3 +101,101 @@
                     },850)
                 }
             });
+
+
+
+
+
+            //Genera las previsualizaciones
+            function createPreview(file) {
+                var imgCodified = URL.createObjectURL(file);
+                var img = $('<div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12"><div class="image-container"> <figure> <img src="' + imgCodified + '" alt="Foto del usuario"> <figcaption> <i class="icon-cross"></i> </figcaption> </figure> </div></div>');
+                $(img).insertBefore("#add-photo-container");
+            } 
+
+
+            function showModal(card) {
+            $("#" + card).show();
+            $(".modal").addClass("show");
+            }
+
+            function closeModal() {
+            $(".modal").removeClass("show");
+            setTimeout(function () {
+                $(".modal .modal-card").hide();
+            }, 300);
+            }
+
+            function loading(status, tag) {
+            if (status) {
+                $("#loading .tag").text(tag);
+                showModal("loading");
+            }
+            else {
+                closeModal();
+            }
+            }
+
+
+            $(document).ready(function(){
+
+            // Modal
+
+            $(".modal").on("click", function (e) {
+                console.log(e);
+                if (($(e.target).hasClass("modal-main") || $(e.target).hasClass("close-modal")) && $("#loading").css("display") == "none") {
+                    closeModal();
+                }
+            });
+
+            // -> Modal
+
+            // Abrir el inspector de archivos
+
+            $(document).on("click", "#add-photo", function(){
+                $("#add-new-photo").click();
+            });
+
+            // -> Abrir el inspector de archivos
+
+            // Agarrmos el evento change
+
+            $(document).on("change", "#add-new-photo", function () {
+                console.log(this.files);
+                var files = this.files;
+                var element;
+                var supportedImages = ["image/jpeg", "image/png", "image/gif"];
+                var seEncontraronElementoNoValidos = false;
+
+                for (var i = 0; i < files.length; i++) {
+                    element = files[i];
+
+                    if (supportedImages.indexOf(element.type) != -1) {
+                        createPreview(element);
+                    }
+                    else {
+                        seEncontraronElementoNoValidos = true;
+                    }
+                }
+
+              /*  if (seEncontraronElementoNoValidos) {
+                    showMessage("Se encontraron archivos no validos.");
+                }
+                else {
+                    showMessage("Todos los archivos se subieron correctamente.");
+                }
+*/
+            });
+
+
+            // Eliminar previsualizaciones
+
+            $(document).on("click", "#Images .image-container", function(e){
+                $(this).parent().remove();
+            });
+
+            // -> Eliminar previsualizaciones
+
+        }); 
+
+

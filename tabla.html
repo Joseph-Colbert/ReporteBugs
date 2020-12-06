@@ -2,13 +2,15 @@
 <html lang="es">
 	<head>
 		<meta charset ="UTF-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no,
-		initial-scale=1.0, maximun-scale=1.0,minimun-scale=1.0">
         <title>Tabla</title> 
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="tabla.css">
     </head>
 	<body>
+
+
+        <button id="button">Get Data</button>
+        
         <div class="container">
             <div class="h">
                 <div class="tools"> 
@@ -42,100 +44,19 @@
                 </div>
             </div>
 
-		    <table class="datatable">
+		    <table class="datatable" id="datatable">
                 <thead>	
                     <tr>
                         <th></th>
                         <th>Prioridad</th>
-                        <th>Titulo</th>
+                        <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Modulo</th>
                         <th>Imagen</th>
                         <th>Fecha</th>
                      </tr>
                  </thead>
-                <tbody>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="available"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="away"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="offline"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="available"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="away"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="offline"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="available"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="away"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
-                    <tr>
-                        <td class="table-checkbox"><input type="checkbox"></td>
-                        <td><span class="offline"></span></td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>Mexico</td>
-                        <td>2020/03/01</td>
-                    </tr>
+                <tbody id="list">
 
                 </tbody>
             </table>

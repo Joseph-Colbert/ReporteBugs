@@ -233,7 +233,7 @@ body{
 	border-radius: 5px;
 	padding: 5px 10px;
 	font-size: 16px;
-	margin-bottom: 40px;
+
 }
 .trabajos .formulario .prioridad{
 	border-radius: 5px;
@@ -251,51 +251,68 @@ body{
 
 }
 
-.trabajos .file {
-	display: none;
-}
-
-.trabajos .btn{
-	display: block;
-	padding: 10px 21px;
-	border:none;
-	color: #fff;
-	font-size: 18px;
-	background: #8F1450;
-	border-radius: 3px;
-	cursor: pointer;
-	text-align: center;
-	margin: auto;
-	margin-bottom: 40px;
-
-}
-
-.trabajos .imagenP{
-	margin: auto;
-}
-
-.trabajos .btn:hover{
-	background: #B31963;
-}
-
-.trabajos .imagen{
-	width: 300px;
-	min-height: 100px;
-	height: 300px;
-	border: 2px solid #dddddd;
-	margin-top: 15px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: bold;
-	color: #cccccc;
-	margin: auto;
-}
-
-.trabajos .i{
-	display: none;
-	width: 100%;
-}
+  * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+  }
+  
+  .row, figure, h2 {
+	  margin: 0 ;
+	  padding: 0;
+  }
+  
+  h2 {
+	  color: black;
+	  margin: 7px ;
+	  font-size: 25px;
+	  font-weight: bold;
+  }
+  
+  [class*="col-"],
+  [class^="col-"] {
+	  padding: 5px;
+  }
+  
+  main {
+	  margin-top: 50px;
+	  display: flex;
+	  justify-content: center;
+  }
+  
+  .container {
+	  display: inline-block;
+	  width: 80%;
+	  padding: 20px;
+  }
+  
+  .images-cards img {
+	  height: 200px;
+  }
+  
+  #Images .add-new-photo {
+	  display: flex;
+	  border: 5px dashed #717784;
+	  width: 350px;
+	  height: 100%;
+	  min-height: 200px;
+	  justify-content: center;
+	  align-items: center;
+	  font-size: 50px;
+	  color: #fff;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: 0.3s all ease;
+	  -webkit-transition: 0.3s all ease;
+	  -moz-transition: 0.3s all ease;
+	  -ms-transition: 0.3s all ease;
+	  -o-transition: 0.3s all ease;
+  }
+  
+  
+  #add-photo-container input {
+	  display: none;
+  }
 
 .trabajos .formulario .error{
 	display: none;
@@ -307,7 +324,7 @@ body{
 	padding-left: 40px;
 }
 
-.trabajos .formulario .boton{
+.trabajos  .boton{
 	width: 100%;
 	text-align: center;
 	background: #340923;
@@ -322,9 +339,11 @@ body{
 	margin-top: 50px;
 }
 
-.trabajos .formulario .boton:hover{
+.trabajos  .boton:hover{
 	background: #570F3A;
 }
+
+
 
 @media screen and (max-width: 700px){
 	.trabajos{

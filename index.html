@@ -5,6 +5,8 @@
 		<title>Reporte de Bugs</title> 
 		<link rel="stylesheet" type="text/css" href="estilos.css">
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
     </head>
 	<body class="hidden">
 		<div id="mensaje"></div>
@@ -24,9 +26,9 @@
 		<div class="msg-container">
 			<div class="msg msg-close">
 				<p class="close">X</p>
-				<img src="reporteSubido.png" alt="">
+				<img src="" alt="">
 				<div class="msg-texto">
-					<h3>Reporte subido con exito</h3>
+					<h3>Se subio el reporte con exito</h3>
 					<p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
 				</div>
 			</div>
@@ -55,26 +57,39 @@
      					<option value="Aplicacion Mobil">Aplicacion Mobil</option>
    					</select>
    					</p>
-   					<p>
-   				
-   			
-   				</div>
 
-					<input type="file" name="file" id="file" class="file">
-	   				<input type="button" value="Subir Imagen" class="btn" 
-	   				onclick="document.getElementById('file').click()">
+				   </div>
 
-   				<div class="ima" id="iP">
-   					<img alt="Preview" class="i">
-   					<span class="imagen">Image Preview</span>
+				   <div class="modal">
+					<div class="modal-main">
+					  <div class="row">
+					  </div>
+					</div>
+				  </div>
+			  
+				  <main>
+					  <div class="container">
+						  <section id="Images" class="images-cards">
+							  <form action="upload.php" method="post" enctype="multipart/form-data">
+								  <div class="row">
+									  <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12" id="add-photo-container">
+										  <div class="add-new-photo first" id="add-photo">
+											  <span><i class="icon-camera"></i></span>
+										  </div>
+										  <input type="file" multiple id="add-new-photo" name="images[]">
+									  </div>
+								  </div>
+							  </form> 
+						  </section>
+					  </div>
+				  </main>
+					   <ul class="error" id="error"></ul>
+					 
    				</div>
-
-   					<ul class="error" id="error"></ul>
-   				</div>
-   				<input class="boton" type="submit" value="Enviar" id="btn">
+   		
 			</form>
+			  <input class="boton" type="submit" value="Enviar" id="btn">
 		</section>
-
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="script.js"></script>
