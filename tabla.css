@@ -2,7 +2,7 @@
 :root{
     --primary-color: #1c1c1c;
     --secundary-color: #f2f2f2;
-    --highlight-color: #cccccc;
+    --highlight-color: #E9eaec;
 
     --dt-status-avaible-color: rgb(255, 0, 0);
     --dt-status-away-color: rgb(201, 39, 39);
@@ -28,18 +28,23 @@
     --dt-input-color:var(--primary-color);
 
 }
+
 body{
     background: #f2f2f2;
 }
+
+
 .material-icons{
 font-size: 16px;
 }
+
+
 .container{
     font-family: 'Noto Sans', sans-serif;
     background-color: var(--dt-background-color-container);
     border-radius: var(--dt-border-radius);
     color: var(--dt-text-color);
-    width: 1000px;
+    width: 1250px;
     margin: 0 auto;
     font-size: 12px;
 }
@@ -56,8 +61,30 @@ font-size: 16px;
     width: 30%;
 }
 
+
+.container .h .search button{
+    color: var(--primary-color);
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--dt-border-radius);
+    background: transparent;
+    cursor: pointer;
+}
+
+.container .h .search button:hover{
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+}
+
+.container .h .search li{
+    display: inline-block;
+    margin: 0 var(--dt-padding-xs);
+    align-items: baseline;
+}
+
+
 .container .h .search .search-input{
-    width: 100%;
+    width: 110%;
     background-color: #fff;
     display: block;
     box-sizing: border-box;
@@ -82,6 +109,26 @@ font-size: 16px;
     display: inline-block;
     margin: 0 var(--dt-padding-xs);
     align-items: baseline;
+}
+
+.container .delete .del button{
+    color: var(--dt-status-avaible-color);
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--dt-border-radius);
+    background: transparent;
+    cursor: pointer;
+}
+
+.container .delete .del button:hover{
+    background: var( --dt-status-avaible-color);
+    color:white;
+}
+
+.container .delete .del ul li{
+    display: inline-block;
+    margin: 0 var(--dt-padding-xs);
+     align-items: baseline;
 }
 
 .container .f{
@@ -178,17 +225,17 @@ font-size: 16px;
 }
 
 .container .datatable tbody tr .available::after{
-    content: 'Alta';
+   
     color: var(--dt-status-avaible-color);
 }
 
 .container .datatable tbody tr .away::after{
-    content: 'Media';
+   
     color: var(--dt-status-away-color);
 }
 
 .container .datatable tbody tr .offline::after{
-    content: 'Baja';
+    
     color: var(--dt-status-offline-color);
 }
 
@@ -205,6 +252,7 @@ font-size: 16px;
 }
 
 .container .datatable tbody tr .available::before{
+    content: alta;
     background-color: var(--dt-status-avaible-color);
 }
 

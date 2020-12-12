@@ -1,10 +1,26 @@
-         //axios post
-
+const buildFormData = (data)=>{
+    let formData = new FormData()
+    const imagefile = document.querySelector('#add-new-photo');     
+    formData.append('image', imagefile.files[0]);
+    console.log(formData.values());
+    if(Array.isArray(formData)){
+       console.info('es un array')
+    } else {
+        for(const key in data){
+            formData.append(key,data[key])
+        }
+    }
+    return formData
+}
+ 
+ //axios post
+ 
         var loading = document.getElementById('load');
         const button = document.getElementById('btn');
         button.addEventListener("click", ()=>{
-            loading.style.display = '';
-        axios({
+            loading.style.display = ''; 
+            
+            const data = axios({
             method: 'POST',
             url:'https://sandbox.zoundbar.com/zb-qa/api/v1/report/',
             data: {
@@ -14,57 +30,73 @@
                 "module": $('#modulo').val()
                 }
             })
+            .then(function (res) {
+                console.log(res.data)
+                console.log(res.data.bug.zbBugId)
 
-            .then(res => console.log(res.data))
+                const payload = buildFormData({  
+                    "zbBugId": res.data.bug.zbBugId,
+                    "Content-type": "multipart/form-data"  //para que la API sepa que es formdata      
+                })
+                axios.post("https://sandbox.zoundbar.com/zb-qa/api/v1/report/image", payload)
+                .then(res => console.log(res))            
+                .catch(err => console.log(err))  
+
+            })          
             .catch(err => console.log(err))
             .then(function() {
                 loading.style.display = 'none';
-              })
-          });
-/*
-          var formData = new FormData();
-          var imagefile = document.querySelector('#file');
-          formData.append("image", imagefile.files[0]);
-          axios.post('upload_file', formData, {
-                 headers: {
-                   'Content-Type': 'multipart/form-data'
-                 }
-          })*/
+              })              
+            
+            });
+
           
+          
+
+
         //para el error
             /*
-		var formulario = document.getElementById('formulario'),
-				nombre = formulario.nombre,
-				mensaje = formulario.mensaje,
-				error = document.getElementById('error');
-				function validarNombre(e){
-					if(nombre.value == '' || nombre.value == null){
-						console.log('Porfavor completa el nombre');
-						error.style.display = 'block';
-						error.innerHTML = error.innerHTML + '<li> Porfavor completa el nombre</li>'// para que muestre todos los errores
-						e.preventDefault();
-					}else{
-						error.style.display = 'none';
-					}
-				}
-				function validarMensaje(e){
-					if(mensaje.value == '' || mensaje.value == null){
-						console.log('Porfavor deja un mensaje');
-						error.style.display = 'block';
-						error.innerHTML = error.innerHTML + '<li> Porfavor deja un mensaje</li>'// para que muestre todos los errores
-						e.preventDefault();
-					}else{
-						error.style.display = 'none';// para que ya no aparezcan mensajes de error
-					}
-				}
-				function validarFormulario(e){
-					error.innerHTML = '';//para que se reinicien los errores encontrados
-					validarNombre(e);
-					validarMensaje(e);
-			
-				}
-                formulario.addEventListener('submit',validarFormulario);
-                
+            var formulario = document.getElementById('formulario'),
+            nombre = formulario.nombre,
+            mensaje = formulario.mensaje,
+            error = document.getElementById('error');
+            function validarEnvio(e){
+             if(succese= false == false){
+                 console.log('Error al subir los datos');
+                 error.style.display = 'block';
+                 error.innerHTML = error.innerHTML + '<li> Se produjo un error al momento de subir los datos</li>'// para que muestre todos los errores
+                 e.preventDefault();
+             }else{
+                 error.style.display = 'none';
+             }
+         }
+            function validarNombre(e){
+                if(nombre.value == '' || nombre.value == null){
+                    console.log('Porfavor completa el nombre');
+                    error.style.display = 'block';
+                    error.innerHTML = error.innerHTML + '<li> Porfavor completa el nombre</li>'// para que muestre todos los errores
+                    e.preventDefault();
+                }else{
+                    error.style.display = 'none';
+                }
+            }
+            function validarMensaje(e){
+                if(mensaje.value == '' || mensaje.value == null){
+                    console.log('Porfavor deja un mensaje');
+                    error.style.display = 'block';
+                    error.innerHTML = error.innerHTML + '<li> Porfavor deja un mensaje</li>'// para que muestre todos los errores
+                    e.preventDefault();
+                }else{
+                    error.style.display = 'none';// para que ya no aparezcan mensajes de error
+                }
+            }
+            function validarFormulario(e){
+                error.innerHTML = '';//para que se reinicien los errores encontrados
+                validarNombre(e);
+                validarMensaje(e);
+        
+            }
+            formulario.addEventListener('submit',validarFormulario);
 */
             //ventana
 
@@ -164,7 +196,7 @@
                 console.log(this.files);
                 var files = this.files;
                 var element;
-                var supportedImages = ["image/jpeg", "image/png", "image/gif"];
+                var supportedImages = ["image/jpeg", "image/png", "image/jpg"];
                 var seEncontraronElementoNoValidos = false;
 
                 for (var i = 0; i < files.length; i++) {
@@ -196,6 +228,4 @@
 
             // -> Eliminar previsualizaciones
 
-        }); 
-
-
+        });

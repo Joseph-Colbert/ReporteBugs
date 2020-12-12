@@ -4,50 +4,44 @@
 		<meta charset ="UTF-8">
         <title>Tabla</title> 
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="tabla.css">
+        <link rel="stylesheet" type="text/css" href="tabla.css">
+        <link rel="stylesheet" type="text/css" href="cors.php">
+        <customHeaders>
+            <add name=" Access-Control-Allow-Origin" value="*" />  
+            <add name=" Access-Control-Allow-Headers" value="Content-Type" /> 
+            <add name=" Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTION" >   
+        </customHeaders>
     </head>
 	<body>
-
-
-        <button id="button">Get Data</button>
-        
         <div class="container">
             <div class="h">
                 <div class="tools"> 
                     <ul>
-                        <li><span><input type="checkbox"></span></li>
                         <li>
                             <button>
-                                <i class="material-icons">add_circle</i>
+                                <a class="material-icons" href="index.html">edit</a>
                             </button>
                         </li>
                         <li>
                             <button>
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </li>
-                        <li>
-                            <button>
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </li>
-                        <li>
-                            <button>
-                                <i class="material-icons">share</i>
+                                <a class="material-icons">share</a>
                             </button>
                         </li>
                     </ul>
                 </div>
                 <div class="search">
-                    Search       
-                    <input type="text" class="search-input">
+                    <li>
+                        <button id="boton">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </li>    
+                    <input type="text" class="search-input" id="formulario">
                 </div>
             </div>
 
 		    <table class="datatable" id="datatable">
                 <thead>	
                     <tr>
-                        <th></th>
                         <th>Prioridad</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
@@ -59,29 +53,17 @@
                 <tbody id="list">
 
                 </tbody>
+                <ul id="resultado">
+                    
+                </ul>
             </table>
 
             <div class="f">
                 <div class="list-item">
-                    Show
-                    <select name="n-entries" id="n-entries" class="n-entris" >
-                        <option value="15">5</option>
-                        <option value="10" selected>10</option>
-                        <option value="15">15</option>
-                    </select>
-                    entries
+                    Tabla de reportes
                 </div>
                 <div class="pages">
-                    <ul>
-                        <li><span class="active">1</span></li>
-                        <li><button>2</button></li>
-                        <li><button>3</button></li>
-                        <li><button>4</button></li>
-                        <li><button>...</button></li>
-                        <li><button>9</button></li>
-                        <li><button>10</button></li>
-                    </ul>
-                </div>
+
             </div>
          </div>		
          <script src="https://code.jquery.com/jquery-3.3.1.js"></script>

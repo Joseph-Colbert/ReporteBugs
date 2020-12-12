@@ -133,6 +133,8 @@ body{
 	border-radius: 10px;
 }
 
+
+
 .close{
 	position: absolute;
 	top: 5px;
@@ -350,10 +352,16 @@ body{
 		text-align: center;
 		width: 500px;
 	}
+	#Images .add-new-photo {
+		width: 290px;
+	}
 
 @media screen and (max-width: 600px){
 	.trabajos{
 		text-align: center;
 		width: 400px;
+	}
+	#Images .add-new-photo {
+		width: 250px;
 	}
 }
